@@ -1,6 +1,6 @@
 import './App.css';
 
-import Welcome from './layout/pages/welcome'
+import Login from './layout/pages/login'
 import Topnavbar from './components/topnavbar'
 
 function App() {
@@ -8,7 +8,9 @@ function App() {
     <div className="App">
       <Topnavbar/>
       <div class='App-header'>
-        <Welcome/>
+        Welcome to Royal Rumbet stupid Name App!
+        <br/>
+        <Login/>
       </div>
      
     </div>
