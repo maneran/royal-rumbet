@@ -1,18 +1,24 @@
 import './App.css';
 
-import Login from './layout/pages/login'
+// import Login from './layout/pages/login'
 import Topnavbar from './components/topnavbar'
+import Tornaments from './layout/pages/Tornaments'
 
 function App() {
   return (
-    <div className="App">
-      <Topnavbar/>
-      <div class='App-header'>
-        Welcome to Royal Rumbet stupid Name App!
+    <div>
+      <div className="App-header">
+        <Topnavbar/>
         <br/>
-        <Login/>
+        <br/>
+          <h2>Main Page</h2>
       </div>
-     
+      <div className='App-body'>
+          {/* <Login/> */}
+          <Tornaments/>
+      </div>
+      <div className='App-foot'>
+      </div>
     </div>
   );
 }

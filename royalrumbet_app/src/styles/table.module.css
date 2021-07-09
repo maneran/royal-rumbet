@@ -1,0 +1,32 @@
+table {
+    background-color: rgb(255, 250, 250);
+    border: 1px solid rgb(12, 12, 12);
+    font-family: 'lato', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+}
+
+th,td {
+    font-size: calc(8px + 2vmin);
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: rgb(12, 12, 11);
+    text-align: center;
+    /* border: 1px solid #999; */
+    
+}
+th {
+    /* font-size: calc(4px + 2vmin); */
+    font-size: 1.5rem;
+    background-color: rgb(88, 136, 224);
+}
+tr {
+    outline: 2px solid #999;
+    outline-offset: -2px;   
+}
+
+tbody {
+    overflow-y: scroll
+}

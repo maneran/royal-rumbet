@@ -6,7 +6,7 @@ export default class Welcome extends Component {
     render() {
         return (
             <div>
-                welcome component
+                Login place holder
             </div>
         )
     }
