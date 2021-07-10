@@ -3,6 +3,7 @@ import React, { Component , Fragment} from 'react'
 // import axios from 'axios';
 import Torgen from '../../components/tornamentgen'
 import styles from './../../styles/tornament.module.css'
+import Filterbar from './../../components/torfilterbat'
 
 export default class Tornaments extends Component {
    
@@ -89,13 +90,7 @@ export default class Tornaments extends Component {
             <Fragment>
               {/* <button onClick={this.printit.bind('hohoho')}>add table</button> */}
               <div className={styles.tornament_container}>
-                <div className={styles.filterbar}> 
-                    filter Bar:   
-                    <button className={styles.filterbtn}>Ttype : dropdown</button>
-                    <button className={styles.filterbtn}>by name: search bar</button>
-                    <button className={styles.filterbtn}>sort by: check boxes</button>
-                    <button className={styles.filterbtn}>active check box</button>
-                </div>
+                <Filterbar/>
                 {Torgen(this.state.tordata)}
               </div>
             </Fragment>

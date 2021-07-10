@@ -1,0 +1,10 @@
+.filterbar {
+    background-color: deepskyblue;
+    display: flex;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.filterbtn {
+    margin-left: 30px; 
+}
