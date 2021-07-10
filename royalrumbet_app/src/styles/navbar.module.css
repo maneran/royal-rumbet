@@ -5,6 +5,7 @@
     font-size: calc(10px + 2vmin);
     height: inherit;
     padding-right: 6px;
+    display: list-item;
   }
   
   /* Style the links inside the navigation bar */

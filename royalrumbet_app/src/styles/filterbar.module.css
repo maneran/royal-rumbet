@@ -1,8 +1,8 @@
 .filterbar {
     background-color: deepskyblue;
-    display: flex;
+    /* display: flex; */
     padding: 10px 0px;
-    text-align: center;
+    text-align: left;
 }
 
 .filterbtn {
