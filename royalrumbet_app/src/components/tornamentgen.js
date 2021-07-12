@@ -1,24 +1,29 @@
-import React ,{ Fragment} from 'react'
-import styles from './../styles/table.module.css'
+import React ,{ Fragment } from 'react'
 
-function torgen(props) {
-    
-    const torKeys = Object.keys(props)
-    const table = torKeys.map((torId,b)=> {
-       
+import { useHistory   } from "react-router-dom";
+
+import styles from './../styles/table.module.css'
+/**/
+function Torgen(props) {
+
+    const torKeys = Object.keys(props.data)
+    const history = useHistory();
+    const table = torKeys.map((torId,idx)=> {
+        let item = props.data[torId]
         return (
-                <tr key={b}>
-                    <td>{props[torId].name}</td>
-                    <td>{props[torId].type}</td>
-                    <td>{props[torId].matchesamount}</td>
-                    <td>{props[torId].matchesprog}</td>
-                    <td>{props[torId].owner}</td>
-                    <td>{props[torId].leadplayer}</td>
-                    <td>{props[torId].leadscore}</td>
-                    <td>{props[torId].yourscore}</td>
+                <tr key={idx} id={item.name} onClick={() => history.push('/torna:' + item.name)} > 
+                    <td>{item.name}</td>
+                    <td>{item.type}</td>
+                    <td>{item.matchesamount}</td>
+                    <td>{item.matchesprog}</td>
+                    <td>{item.owner}</td>
+                    <td>{item.leadplayer}</td>
+                    <td>{item.leadscore}</td>
+                    <td>{item.yourscore}</td>
                 </tr>
         )
     })
+
 
     return (
         <Fragment>
@@ -42,4 +47,4 @@ function torgen(props) {
         </Fragment>
     )
 }
-export default torgen
+export default Torgen

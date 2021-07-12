@@ -58,11 +58,6 @@ export default class Tornaments extends Component {
         }
     }
 
-    printit = (str) => {
-        console.log('component mounted: ', str)
-        this.setState({userId: 'sagiMounted',
-                      torId: ['1234','456']})
-    }
 
     componentDidMount = () => {
         /*
@@ -88,10 +83,9 @@ export default class Tornaments extends Component {
     render() {
         return (
             <Fragment>
-              {/* <button onClick={this.printit.bind('hohoho')}>add table</button> */}
               <div className={styles.tornament_container}>
                 <Filterbar/>
-                {Torgen(this.state.tordata)}
+                <Torgen data={this.state.tordata}/>
               </div>
             </Fragment>
         )
