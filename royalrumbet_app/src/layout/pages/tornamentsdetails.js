@@ -8,11 +8,14 @@ class Tornamentsdetails extends Component {
         this.state = { counter: 0 };
     }
 
+    
     render() {
+        const torName = this.props.match.params.name
+        console.log(this.props)
         return (
             <div>
                {/* {this.props.match.params} */}
-               im this contest
+               im this contest {torName}
             </div>
         )
     }

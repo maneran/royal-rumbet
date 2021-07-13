@@ -10,8 +10,10 @@ function Torgen(props) {
     const history = useHistory();
     const table = torKeys.map((torId,idx)=> {
         let item = props.data[torId]
+
+        /*will add a change route path to the url to generante the tornament details*/
         return (
-                <tr key={idx} id={item.name} onClick={() => history.push('/torna:' + item.name)} > 
+                <tr key={idx} id={item.name} onClick={() => history.push('/torna' + item.name)} > 
                     <td>{item.name}</td>
                     <td>{item.type}</td>
                     <td>{item.matchesamount}</td>
