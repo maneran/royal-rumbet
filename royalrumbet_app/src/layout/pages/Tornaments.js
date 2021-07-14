@@ -1,9 +1,21 @@
 import React, { Component , Fragment} from 'react'
 
 // import axios from 'axios';
-import Torgen from '../../components/tornamentgen'
+import TableGen from '../../components/table_gen'
 import styles from './../../styles/tornament.module.css'
 import Filterbar from './../../components/torfilterbat'
+import dummyData from './../../dummyData/dummyData'
+
+const tornamentTable = { 
+                         name : 'name',
+                         type: 'type',
+                         matchesamount: 'match #num',
+                         matchesprog: 'match rate',
+                         owner: 'owner',
+                         leadplayer: 'top player',
+                         leadscore: 'top player score',
+                         yourscore:  'yourscore'
+                        }
 
 export default class Tornaments extends Component {
    
@@ -12,52 +24,6 @@ export default class Tornaments extends Component {
         will contain user details 
         tormanent details per tornamet
     */
-    state = {
-        userId: 'sagi',
-        tordata: {
-            '123' : {
-                    name: 'Euro24',
-                    type: 'soccer',
-                    matchesamount: 20,
-                    matchesprog: '5/20',
-                    owner: 'sagi',
-                    leadplayer: 'manela',
-                    leadscore: 40,
-                    yourscore: 35,
-            },
-            '345' : {
-                    name: 'RolandG',
-                    type: 'Tennis',
-                    matchesamount: 20,
-                    matchesprog: '5/20',
-                    owner: 'Ran',
-                    leadplayer: 'manela',
-                    leadscore: 40,
-                    yourscore: 35,
-            },
-            '678' : {
-                name: 'NBA',
-                type: 'BasketBall',
-                matchesamount: 20,
-                matchesprog: '5/20',
-                owner: 'Farkash',
-                leadplayer: 'manela',
-                leadscore: 40,
-                yourscore: 35,
-            },
-            '901' : {
-                name: 'Euro24',
-                type: 'soccer',
-                matchesamount: 20,
-                matchesprog: '5/20',
-                owner: 'Lavi',
-                leadplayer: 'manela',
-                leadscore: 40,
-                yourscore: 35,
-            },
-        }
-    }
-
 
     componentDidMount = () => {
         /*
@@ -70,22 +36,24 @@ export default class Tornaments extends Component {
         //    .then(res => {
         //         const persons = res.data;
         //         this.setState({ persons });
-        //         console.log(res.data)})             
+        //         console.log(res.data)})     
+        console.log(dummyData);        
     }
 
-    componentDidUpdate(prevProps,prevState) {
-        console.log(prevState.userId,prevState.userId !== undefined)
-        if (prevState.userId !== undefined && prevState.userId !== this.state.userId) {
-            console.log(prevState.userId,this.state.userId)
-        }
-    }
+    // componentDidUpdate(prevProps,prevState) {
+    //     console.log(prevState.userId,prevState.userId !== undefined)
+    //     if (prevState.userId !== undefined && prevState.userId !== this.state.userId) {
+    //         console.log(prevState.userId,this.state.userId)
+    //     }
+    // }
    
     render() {
         return (
             <Fragment>
               <div className={styles.tornament_container}>
                 <Filterbar/>
-                <Torgen data={this.state.tordata}/>
+                <TableGen data={{columns: tornamentTable ,
+                                 rows: dummyData.tordata}}/>
               </div>
             </Fragment>
         )

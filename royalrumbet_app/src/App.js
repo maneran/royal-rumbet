@@ -19,9 +19,9 @@ function App() {
       </div>
       <div className='App-body'>
         <Switch>
-          <Route exact path="/" component={Tornaments}></Route>
-          <Route path="/torna:name" component={Tornamentsdetails}></Route>
-        </Switch>
+           <Route exact path="/" component={Tornaments}></Route>
+           <Route exact path="/torna:id" component={Tornamentsdetails}></Route>
+         </Switch>
           {/* <Login/> */}
           {/* <Tornaments/> */}
       </div>

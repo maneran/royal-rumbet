@@ -1,5 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
+import TableGen from '../../components/table_gen'
+import dummyData2 from './../../dummyData/dummyData2'
+
+const cols = { name : 'name',
+               yourscore:  'yourscore'
+             }
+
+
+const rows = dummyData2
 
 class Tornamentsdetails extends Component {
 
@@ -8,15 +17,15 @@ class Tornamentsdetails extends Component {
         this.state = { counter: 0 };
     }
 
-    
     render() {
-        const torName = this.props.match.params.name
-        console.log(this.props)
+        const torNames = this.props.match.params.id
+        console.log(rows.tordata[torNames])
+
         return (
-            <div>
-               {/* {this.props.match.params} */}
-               im this contest {torName}
-            </div>
+            <Fragment>
+                <TableGen data={{columns: cols ,
+                    rows: {[torNames]: rows.tordata[torNames]}}}/> 
+            </Fragment>
         )
     }
 }
