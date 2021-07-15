@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { Redirect } from "react-router-dom";
 
 import styles from './../styles/navbar.module.css'
 import { Link } from "react-router-dom";

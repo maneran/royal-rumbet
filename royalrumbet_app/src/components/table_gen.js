@@ -20,33 +20,43 @@ function TableGen(props) {
     console.log(td_vals)
     const tds = td_vals.map((rowid,idx1)=> {
 
-        // done - by malvina
-        let td_vals_jsx = th_vals.map((colname,idx2) => {
-            // need a better error handle
-            // also consider using redirect
-            //also - consider using route in the rh and td it self
-            try {
-                (() => props.data.rows[Number(rowid)])()
-                // (() => props.data.rows[Number(rowid)][colname])()
-            }
-            catch {
-                
-                (() => {alert('no such Patch');
-                        history.push('/');
-                        })()
-            }
-           return (
-            <td key={idx2}>{props.data.rows[Number(rowid)][colname]}</td>
-           ) 
+        let itemAmnt = props.data.rows[Number(rowid)]
+
+        //let std_vals_jsx = itemAmnt.map((colname,idx3) => {
+            
+            let td_vals_jsx = th_vals.map((colname,idx2) => {
+                // need a better error handle
+                // also consider using redirect
+                //also - consider using route in the rh and td it self
+                try {
+                    (() => itemAmnt)()
+                    // (() => props.data.rows[Number(rowid)][colname])()
+                }
+                catch {
+
+                    (() => {alert('no such Patch');
+                            history.push('/');
+                            })()
+                }
+
+                return (
+                    <td key={idx2}>{itemAmnt[colname]}</td>
+                ) 
+            })
+            /* ADD GET PARAMS FROM LOCATION - IF ACCESS IS FROM URK IT SELF */
+            /*will add a change route path to the url to generante the tornament details*/
+            return (
+                     <tr key={idx1} id={rowid} onClick={() => history.push('/torna' + rowid)} > 
+                       {td_vals_jsx}
+                     </tr>
+            )
         })
-        /* ADD GET PARAMS FROM LOCATION - IF ACCESS IS FROM URK IT SELF */
-        /*will add a change route path to the url to generante the tornament details*/
-        return (
-                 <tr key={idx1} id={rowid} onClick={() => history.push('/torna' + rowid)} > 
-                   {td_vals_jsx}
-                 </tr>
-        )
-    })  
+    //     console.log(std_vals_jsx)
+    //     return (
+    //         {std_vals_jsx}
+    //     )
+
+  //  })  
 
     const ths = th_vals.map((coln, idx3) => {
         return (
@@ -55,7 +65,6 @@ function TableGen(props) {
     })
 
     return (
-        
         
         <Fragment>
             <table className={styles.table}>

@@ -4,7 +4,7 @@ import React, { Component , Fragment} from 'react'
 import TableGen from '../../components/table_gen'
 import styles from './../../styles/tornament.module.css'
 import Filterbar from './../../components/torfilterbat'
-import dummyData from './../../dummyData/dummyData'
+import dummyData from './../../dummyData/dummy_tornamets'
 
 const tornamentTable = { 
                          name : 'name',
@@ -50,6 +50,8 @@ export default class Tornaments extends Component {
     render() {
         return (
             <Fragment>
+              <h2>Contests Page</h2>  
+              <br/>
               <div className={styles.tornament_container}>
                 <Filterbar/>
                 <TableGen data={{columns: tornamentTable ,

@@ -5,7 +5,7 @@ import { BrowserRouter as Router , Route , Switch} from "react-router-dom";
 // import Login from './layout/pages/login'
 import Topnavbar from './components/topnavbar'
 import Tornaments from './layout/pages/Tornaments'
-import Tornamentsdetails from './layout/pages/tornamentsdetails'
+import Matches from './layout/pages/matches'
 
 function App() {
   return (
@@ -13,17 +13,14 @@ function App() {
     <div>
       <div className="App-header">
         <Topnavbar/>
-        <br/>
-        <br/>
-          <h2>Main Page</h2>
       </div>
       <div className='App-body'>
+        <br/>
         <Switch>
            <Route exact path="/" component={Tornaments}></Route>
-           <Route exact path="/torna:id" component={Tornamentsdetails}></Route>
+           <Route exact path="/torna:id" component={Matches}></Route>
          </Switch>
           {/* <Login/> */}
-          {/* <Tornaments/> */}
       </div>
       <div className='App-foot'>
       </div>

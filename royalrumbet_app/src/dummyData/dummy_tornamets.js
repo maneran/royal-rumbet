@@ -1,7 +1,7 @@
 const dummyData = {
         userId: 'sagi',
         tordata: {
-            '123' : {
+            '123' : [{
                     name: 'Euro24',
                     type: 'soccer',
                     matchesamount: 25,
@@ -10,8 +10,8 @@ const dummyData = {
                     leadplayer: 'manela',
                     leadscore: 40,
                     yourscore: 35,
-            },
-            '345' : {
+            }],
+            '345' : [{
                     name: 'RolandG',
                     type: 'Tennis',
                     matchesamount: 7,
@@ -20,8 +20,8 @@ const dummyData = {
                     leadplayer: 'sagi',
                     leadscore: 30,
                     yourscore: 30,
-            },
-            '678' : {
+            }],
+            '678' : [{
                 name: 'NBA',
                 type: 'BasketBall',
                 matchesamount: 6,
@@ -30,8 +30,8 @@ const dummyData = {
                 leadplayer: 'labaman',
                 leadscore: 45,
                 yourscore: 15,
-            },
-            '901' : {
+            }],
+            '901' : [{
                 name: 'Euro24',
                 type: 'soccer',
                 matchesamount: 20,
@@ -40,7 +40,7 @@ const dummyData = {
                 leadplayer: 'manela',
                 leadscore: 14,
                 yourscore: 13,
-            },
+            }],
         }
     }
     export default dummyData;
