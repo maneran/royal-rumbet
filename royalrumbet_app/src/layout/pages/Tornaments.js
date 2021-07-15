@@ -37,7 +37,7 @@ export default class Tornaments extends Component {
         //         const persons = res.data;
         //         this.setState({ persons });
         //         console.log(res.data)})     
-        console.log(dummyData);        
+        // console.log(dummyData);        
     }
 
     // componentDidUpdate(prevProps,prevState) {

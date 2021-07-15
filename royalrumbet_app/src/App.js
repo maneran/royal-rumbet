@@ -6,6 +6,7 @@ import { BrowserRouter as Router , Route , Switch} from "react-router-dom";
 import Topnavbar from './components/topnavbar'
 import Tornaments from './layout/pages/Tornaments'
 import Matches from './layout/pages/matches'
+import PlayerRank from './layout/pages/playerRank';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Switch>
            <Route exact path="/" component={Tornaments}></Route>
            <Route exact path="/torna:id" component={Matches}></Route>
+           <Route exact path="/Players" component={PlayerRank}></Route>
          </Switch>
           {/* <Login/> */}
       </div>

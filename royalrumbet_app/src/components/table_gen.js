@@ -47,7 +47,7 @@ function TableGen(props) {
                 //             history.push('/');
                 //             })()
                 // }
-                console.log(obj[colname]);
+                // console.log(obj[colname]);
 
                 return (
                     <td key={idx2}>{obj[colname]}</td>
@@ -55,14 +55,14 @@ function TableGen(props) {
             })
             /* ADD GET PARAMS FROM LOCATION - IF ACCESS IS FROM URK IT SELF */
             /*will add a change route path to the url to generante the tornament details*/
-            console.log(idx3);
+            // console.log(idx3);
             return (
                      <tr key={idx1+idx3} id={rowid} onClick={() => history.push('/torna' + rowid)} > 
                        {td_vals_jsx}
                      </tr>
             )
         })
-        console.log(std_vals_jsx)
+        // console.log(std_vals_jsx)
         return (
             <tbody>
                 {std_vals_jsx}
