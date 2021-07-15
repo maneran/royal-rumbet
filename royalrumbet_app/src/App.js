@@ -7,6 +7,7 @@ import Topnavbar from './components/topnavbar'
 import Tornaments from './layout/pages/Tornaments'
 import Matches from './layout/pages/matches'
 import PlayerRank from './layout/pages/playerRank';
+import Match from './layout/pages/match';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
         <Switch>
            <Route exact path="/" component={Tornaments}></Route>
            <Route exact path="/torna:id" component={Matches}></Route>
-           <Route exact path="/Players" component={PlayerRank}></Route>
+           <Route exact path="/players" component={PlayerRank}></Route>
+           <Route exact path="/matches" component={Match}></Route>
          </Switch>
           {/* <Login/> */}
       </div>

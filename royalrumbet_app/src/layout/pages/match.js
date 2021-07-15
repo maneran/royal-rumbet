@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class matchSingle extends Component {
+class Match extends Component {
     render() {
         return (
             <div>
@@ -10,4 +10,4 @@ class matchSingle extends Component {
     }
 }
 
-export default matchSingle;
+export default Match;

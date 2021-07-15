@@ -21,14 +21,15 @@ class Matches extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { totalScore : this.props.match.params.id ? this.props.match.params.id : this.props.location.state.torNames };
+        this.state = { tornaId : this.props.match.params.id ? this.props.match.params.id : this.props.location.state.torNames,
+                        activeMatch: null };
     }
 
     totalScore = () => {
         /*
             should be called form the total score per player table 
         */
-       const item_values = rows.tordata[this.state.totalScore]
+       const item_values = rows.tordata[this.state.tornaId]
        let listhis = [];
        let $totalscore = 0;
        if (Array.isArray(item_values)) {
@@ -45,15 +46,16 @@ class Matches extends Component {
 
     render() {
 
-        const torNames = this.state.totalScore 
+        const torNames = this.state.tornaId 
         console.log(this.props)
         return (
             <Fragment>
-                <h2><Link to={{
-                            pathname: `Players`,
-                            state: {torNames: torNames}
-                        }}>Players Rank</Link>
-                        Matches Page</h2>  
+                <h2>
+                    <Link to={{pathname: `players`, state: {torNames: torNames}}}>Players Rank</Link>
+                    Matches Page
+                    <Link to={{pathname: `match`, state: {torNames: torNames , activematch: null, 
+                                                          matches: dummyData2.tordata[torNames]}}}>Match Page</Link>
+                </h2>  
                 <br/>
                 <div className={styles.tornament_container}>
                     <h3>Total score: {this.totalScore()}</h3>
