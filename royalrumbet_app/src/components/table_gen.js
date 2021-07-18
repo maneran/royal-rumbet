@@ -1,6 +1,6 @@
 import React ,{ Fragment } from 'react'
 
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import styles from './../styles/table.module.css'
 /**/
@@ -48,25 +48,24 @@ function TableGen(props) {
                 //             })()
                 // }
                 // console.log(obj[colname]);
-
+                console.log(props.data.linkto ,  {id: rowid})
                 return (
-                    <td key={idx2}>{obj[colname]}</td>
+                    
+                    // <td key={idx2}><Link to={{pathname:  props.data.linkto , state: {id: rowid}}}>{obj[colname]}</Link></td>
+                     <td key={idx2}>{obj[colname]}</td>
                 ) 
             })
             /* ADD GET PARAMS FROM LOCATION - IF ACCESS IS FROM URK IT SELF */
             /*will add a change route path to the url to generante the tornament details*/
-            // console.log(idx3);
             return (
-                     <tr key={idx1+idx3} id={rowid} onClick={() => history.push('/torna' + rowid)} > 
-                       {td_vals_jsx}
+                    <tr key={idx1+idx3} id={rowid} onClick={() => history.push('/' + props.data.linkto , {id: rowid})} > 
+                       {/* <tr key={idx1+idx3} id={rowid}> */}
+                          {td_vals_jsx}
                      </tr>
             )
         })
-        // console.log(std_vals_jsx)
         return (
-            <tbody>
-                {std_vals_jsx}
-            </tbody>
+                std_vals_jsx
         )
   })  
 
@@ -85,7 +84,10 @@ function TableGen(props) {
                    {ths}
                 </tr>
                 </thead>
-                     {tds}
+                <tbody>
+                    {tds}
+                </tbody>
+                     
             </table>
         </Fragment>
     )

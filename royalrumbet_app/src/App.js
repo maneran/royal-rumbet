@@ -20,9 +20,9 @@ function App() {
         <br/>
         <Switch>
            <Route exact path="/" component={Tornaments}></Route>
-           <Route exact path="/torna:id" component={Matches}></Route>
+           <Route exact path="/matches" component={Matches}></Route>
            <Route exact path="/players" component={PlayerRank}></Route>
-           <Route exact path="/matches" component={Match}></Route>
+           <Route exact path="/match" component={Match}></Route>
          </Switch>
           {/* <Login/> */}
       </div>

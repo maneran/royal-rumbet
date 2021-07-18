@@ -48,6 +48,7 @@ export default class Tornaments extends Component {
     // }
    
     render() {
+        console.log(this.props)
         return (
             <Fragment>
               <h2>Contests Page</h2>  
@@ -55,7 +56,8 @@ export default class Tornaments extends Component {
               <div className={styles.tornament_container}>
                 <Filterbar/>
                 <TableGen data={{columns: tornamentTable ,
-                                 rows: dummyData.tordata}}/>
+                                 rows: dummyData.tordata,
+                                 linkto: 'matches'}}/>
               </div>
             </Fragment>
         )

@@ -18,7 +18,7 @@ class PlayerRank extends Component {
         const torNames = this.props.location.state.torNames
         return (
             <Fragment>
-                <h2>Player Ranking Page <Link to={{pathname: `torna`+ torNames,
+                <h2>Player Ranking Page <Link to={{pathname: `matches`,
                                                     state: {torNames: torNames}
                                                  }} 
                                                  torNames>swipe right</Link></h2>  

@@ -21,7 +21,7 @@ class Matches extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { tornaId : this.props.match.params.id ? this.props.match.params.id : this.props.location.state.torNames,
+        this.state = { tornaId : this.props.location.state.id ? this.props.location.state.id : this.props.location.state.torNames,
                         activeMatch: null };
     }
 
@@ -60,7 +60,8 @@ class Matches extends Component {
                 <div className={styles.tornament_container}>
                     <h3>Total score: {this.totalScore()}</h3>
                     <TableGen data={{columns: cols ,
-                        rows: {[torNames]: rows.tordata[torNames]}}}/>
+                                     rows: {[torNames]: rows.tordata[torNames]},
+                                     linkto: 'match'}}/>
                 </div> 
             </Fragment>
         )
