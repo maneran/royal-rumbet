@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Mongock(MongoDB) Parent project</name>
+  <description>MongoDB tool for tracking, managing and applying database schema changes</description>
+  <url>https://github.com/cloudyrock/mongock</url>
+
+  <groupId>com.github.cloudyrock.mongock</groupId>
+  <artifactId>mongock</artifactId>
+  <version>4.3.8</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>mongock-bom</module>
+    <module>mongodb-v3-driver</module>
+    <module>mongodb-sync-v4-driver</module>
+    <module>mongodb-springdata-v2-driver</module>
+    <module>mongodb-springdata-v3-driver</module>
+    <module>mongodb-driver-test-template</module>
+  </modules>
+
+
+  <properties>
+
+    <!-- CORE
+    TODO UPDATE THIS VERSION FOR CORE UPDATES
+    -->
+    <mongock.core.version>4.3.8</mongock.core.version>
+
+
+    <java.version>1.8</java.version>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+
+    <!-- mongodb driver versions -->
+    <mongodb.java-driver>3.11.2</mongodb.java-driver>
+    <mongodb.driver-sync.version>4.0.5</mongodb.driver-sync.version>
+    <mongodb.spring-data.v2.version>2.2.12.RELEASE</mongodb.spring-data.v2.version>
+    <mongodb.spring-data.v3.version>3.0.6.RELEASE</mongodb.spring-data.v3.version>
+  </properties>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:cloudyrock/mongock.git</connection>
+    <developerConnection>scm:git:git@github.com:cloudyrock/mongock.git</developerConnection>
+    <url>https://github.com/cloudyrock/mongock</url>
+    <tag>mongock-4.3.8</tag>
+  </scm>
+  <developers>
+    <developer>
+      <id>dieppa</id>
+      <name>dieppa</name>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <plugins>
+
+
+      <plugin>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <executions>
+          <execution>
+            <id>default-deploy</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>deploy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration> <!-- add this to disable checking -->
+              <additionalparam>-Xdoclint:none</additionalparam>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <localCheckout>true</localCheckout>
+          <pushChanges>false</pushChanges>
+          <mavenExecutorId>forked-path</mavenExecutorId>
+          <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9.5</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <version>1.6.7</version>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.0.1</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
+        </configuration>
+      </plugin>
+
+
+
+    </plugins>
+  </build>
+
+  <profiles>
+
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M4</version>
+            <configuration>
+              <skipTests>false</skipTests>
+              <excludes>
+                <exclude>**/*ITest.java</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-test</id>
+                <goals>
+                  <goal>test</goal>
+                </goals>
+                <phase>integration-test</phase>
+                <configuration>
+                  <excludes>
+                    <exclude>**/*ITest.java</exclude>
+                  </excludes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>it</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M4</version>
+            <configuration>
+              <skipTests>false</skipTests>
+              <excludes>
+                <exclude>**/*ITest.java</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-test</id>
+                <goals>
+                  <goal>test</goal>
+                </goals>
+                <phase>integration-test</phase>
+                <configuration>
+                  <excludes>
+                    <exclude>none</exclude>
+                  </excludes>
+                  <includes>
+                    <include>**/*ITest.java</include>
+                  </includes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>no-test</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M4</version>
+            <configuration>
+              <skipTests>true</skipTests>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+
+    <!-- GPG Signature on release -->
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
