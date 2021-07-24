@@ -1,8 +1,15 @@
 # sheepit
 
-#### Steps for booting the app :
+### Steps for booting the app :
 
-Run the following command in separate terminal
+#### Install list of technologies:
+
+- Docker and Docker compose(Docker desktop for Windows)
+- java 8
+- maven (3.6 version or above)
+- node(npm)
+
+####Run the following command in separate terminal
 
 ```
 docker-compose -f src/main/docker/keycloak-postgres-pgadmin.yml up -d
