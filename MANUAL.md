@@ -5,30 +5,16 @@
 #### Install list of technologies:
 
 - Docker and Docker compose(Docker desktop for Windows)
-- java 8
-- maven (3.6 version or above)
+- java 8 (https://adoptopenjdk.net/)
+- maven 3.6 version or above(https://maven.apache.org/install.html)
+  - after installation copy settings.xml under .m2 folder
 - node(npm)
+- Intellij IDE (Recommended)
 
 ####Run the following command in separate terminal
 
 ```
 docker-compose -f src/main/docker/keycloak-postgres-pgadmin.yml up -d
-```
-
-##
-
-Postgresql credentials:
-
-```
-POSTGRES_DB: keycloak
-POSTGRES_USER: keycloak
-POSTGRES_PASSWORD: password
-```
-
-How to get the Postgres host address parameter:
-
-```
-docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <postgres container id>
 ```
 
 ##
@@ -41,7 +27,23 @@ User: admin@pgadmin.org
 Password: admin
 ```
 
-Once logged in create a server with postgres credentials above
+Once logged in create a server with postgres credentials below
+
+##
+
+Postgresql credentials:
+
+```
+POSTGRES_DB: keycloak
+POSTGRES_USER: keycloak
+POSTGRES_PASSWORD: password
+```
+
+How to get the Postgres **host** address parameter:
+
+```
+docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' <postgres container id>
+```
 
 ##
 
@@ -52,6 +54,8 @@ http://localhost:9080/auth/
 User: admin
 Password: Pa55w0rd
 ```
+
+For facebook and google login, you will need to configure keycloak with social login once.
 
 ##
 
