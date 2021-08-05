@@ -599,10 +599,10 @@
                         <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                         <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
                         <driver>org.postgresql.Driver</driver>
-                        <url>jdbc:postgresql://localhost:5432/sheepit</url>
+                        <url>jdbc:postgresql://localhost:5432/keycloak</url>
                         <defaultSchemaName></defaultSchemaName>
-                        <username>sheepit</username>
-                        <password></password>
+                        <username>keycloak</username>
+                        <password>password</password>
                         <referenceUrl>hibernate:spring:com.sheepit.app.domain?dialect=tech.jhipster.domain.util.FixedPostgreSQL10Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                         <verbose>true</verbose>
                         <logging>debug</logging>
