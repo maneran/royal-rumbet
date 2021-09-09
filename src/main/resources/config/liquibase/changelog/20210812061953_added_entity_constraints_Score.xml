@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Score.
+    -->
+    <changeSet id="20210812061953-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="game_id"
+                                 baseTableName="score"
+                                 constraintName="fk_score__game_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="score"
+                                 constraintName="fk_score__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="tournament_id"
+                                 baseTableName="score"
+                                 constraintName="fk_score__tournament_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tournament"/>
+    </changeSet>
+    <changeSet id="20210812061953-3" author="RANMA (generated)">
+        <setTableRemarks tableName="score"/>
+    </changeSet>
+    <changeSet id="20210812061953-4" author="RANMA (generated)">
+        <dropNotNullConstraint columnDataType="bigint" columnName="id" tableName="score"/>
+    </changeSet>
+<!--    <changeSet id="20210812061953-5" author="RANMA (generated)">-->
+<!--        <dropPrimaryKey tableName="score"/>-->
+<!--    </changeSet>-->
+    <changeSet id="20210812061953-6" author="RANMA (generated)">
+        <addPrimaryKey columnNames="user_id, tournament_id, game_id" constraintName="scorePK" tableName="score"/>
+    </changeSet>
+</databaseChangeLog>

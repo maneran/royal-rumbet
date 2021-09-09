@@ -1,0 +1,57 @@
+{
+  "name": "UserOutcome",
+  "fields": [
+    {
+      "fieldName": "endOutcomeOpponentA",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^[0-9]*$"
+    },
+    {
+      "fieldName": "endOutcomeOpponentB",
+      "fieldType": "String",
+      "fieldValidateRules": ["pattern"],
+      "fieldValidateRulesPattern": "^[0-9]*$"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "userOutcome",
+      "relationshipValidateRules": "required",
+      "relationshipName": "game",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "userOutcome",
+      "relationshipValidateRules": "required",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tournament",
+      "otherEntityRelationshipName": "userOutcome",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tournament",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "UserOutcome entity.\\n@author ranma.",
+  "entityTableName": "user_outcome",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210812061952"
+}

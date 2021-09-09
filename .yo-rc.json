@@ -41,6 +41,8 @@
     "devServerPort": 9060,
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "entities": ["Group", "Tournament", "Opponent", "Game", "GameConfig", "AdminOutcome", "UserOutcome", "Score"],
+    "lastLiquibaseTimestamp": 1628749193000
   }
 }
