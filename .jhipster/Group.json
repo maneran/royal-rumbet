@@ -1,0 +1,31 @@
+{
+  "name": "Group",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "group",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "Group entity.\\n@author ranma.",
+  "entityTableName": "jhi_group",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210812061946"
+}

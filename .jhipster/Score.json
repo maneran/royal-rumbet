@@ -1,0 +1,49 @@
+{
+  "name": "Score",
+  "fields": [
+    {
+      "fieldName": "points",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "game",
+      "otherEntityRelationshipName": "score",
+      "relationshipValidateRules": "required",
+      "relationshipName": "game",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "score",
+      "relationshipValidateRules": "required",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tournament",
+      "otherEntityRelationshipName": "score",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tournament",
+      "otherEntityField": "name",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "Score entity.\\n@author ranma.",
+  "entityTableName": "score",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210812061953"
+}

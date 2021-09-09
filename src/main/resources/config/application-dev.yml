@@ -40,9 +40,27 @@ spring:
       auto-commit: false
   jpa:
     database-platform: tech.jhipster.domain.util.FixedPostgreSQL10Dialect
+    properties:
+      hibernate:
+        jdbc:
+          jdbc:
+            batch_size: 20
+            order_inserts: true
+            order_updates: true
+            batch_versioned_data: true
+  data:
+    web:
+      pageable:
+        # Default page size.
+        default-page-size: 30
+        # Maximum page size to be accepted.
+        max-page-size: 2000
+        # Whether to expose and assume 1-based page number indexes.
+        one-indexed-parameters: false
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
-    contexts: dev, faker
+    #    contexts: dev, faker
+    contexts: dev
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:

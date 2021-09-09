@@ -48,6 +48,17 @@ public class CacheConfiguration {
             createCache(cm, com.sheepit.app.domain.User.class.getName());
             createCache(cm, com.sheepit.app.domain.Authority.class.getName());
             createCache(cm, com.sheepit.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.sheepit.app.domain.Group.class.getName());
+            createCache(cm, com.sheepit.app.domain.Group.class.getName() + ".users");
+            createCache(cm, com.sheepit.app.domain.Tournament.class.getName());
+            createCache(cm, com.sheepit.app.domain.Tournament.class.getName() + ".games");
+            createCache(cm, com.sheepit.app.domain.Opponent.class.getName());
+            createCache(cm, com.sheepit.app.domain.Game.class.getName());
+            createCache(cm, com.sheepit.app.domain.Game.class.getName() + ".users");
+            createCache(cm, com.sheepit.app.domain.GameConfig.class.getName());
+            createCache(cm, com.sheepit.app.domain.AdminOutcome.class.getName());
+            createCache(cm, com.sheepit.app.domain.UserOutcome.class.getName());
+            createCache(cm, com.sheepit.app.domain.Score.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

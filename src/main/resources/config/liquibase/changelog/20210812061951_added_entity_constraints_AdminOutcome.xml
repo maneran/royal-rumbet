@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity AdminOutcome.
+    -->
+    <changeSet id="20210812061951-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="game_id"
+                                 baseTableName="admin_outcome"
+                                 constraintName="fk_admin_outcome__game_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="admin_outcome"
+                                 constraintName="fk_admin_outcome__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="tournament_id"
+                                 baseTableName="admin_outcome"
+                                 constraintName="fk_admin_outcome__tournament_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tournament"/>
+    </changeSet>
+    <changeSet id="20210812061951-3" author="RANMA (generated)">
+        <setTableRemarks tableName="admin_outcome"/>
+    </changeSet>
+    <changeSet id="20210812061951-4" author="RANMA (generated)">
+        <dropNotNullConstraint columnDataType="bigint" columnName="id" tableName="admin_outcome"/>
+    </changeSet>
+<!--    <changeSet id="20210812061951-5" author="RANMA (generated)">-->
+<!--        <dropPrimaryKey tableName="admin_outcome"/>-->
+<!--    </changeSet>-->
+    <changeSet id="20210812061951-6" author="RANMA (generated)">
+        <addPrimaryKey columnNames="user_id, tournament_id, game_id" constraintName="admin_outcomePK" tableName="admin_outcome"/>
+    </changeSet>
+</databaseChangeLog>

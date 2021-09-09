@@ -1,0 +1,39 @@
+{
+  "name": "Opponent",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "opponentType",
+      "fieldType": "OpponentType",
+      "fieldValues": "SINGLE (Single),TEAM (Team)",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "numberOfPlayers",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "11"
+    }
+  ],
+  "relationships": [],
+  "javadoc": "Opponent entity.\\n@author ranma.",
+  "entityTableName": "opponent",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210812061948"
+}

@@ -1,0 +1,161 @@
+/**
+ * Group entity.
+ * @author ranma.
+ */
+entity Group {
+	name String required unique
+}
+
+/**
+ * Tournament entity.
+ * @author ranma.
+ */
+entity Tournament {
+	name String required,
+    dateStart Instant required,
+    dateEnd Instant required,
+    registrationEndDate Instant required
+}
+
+/**
+ * Opponent entity.
+ * @author ranma.
+ */
+entity Opponent {
+	name String required unique,
+    description String,
+    type OpponentType required,
+    numberOfPlayers Integer min(1) max(11)
+}
+
+/**
+ * Game entity.
+ * @author ranma.
+ * name will be regenerate including 
+ * tournament-name + opponent names + dateStart
+ * for searching purpose in Outcome endpoint
+ */
+entity Game {
+	name String,
+    dateStart Instant required
+    type GameType required,
+    stageType GameStageType required,
+}
+
+/**
+ * GameConfig entity.
+ * @author ranma.
+ */
+entity GameConfig {
+	gameType GameType required,
+    gameStageType GameStageType required,
+    gameOutcome GameOutcome required,
+    points Integer min(0) max(20) required   
+}
+
+/**
+ * AdminOutcome entity.
+ * @author ranma.
+ */
+entity AdminOutcome {
+	endOutcomeOpponentA String pattern(/^[0-9]*$/),
+    endOutcomeOpponentB String pattern(/^[0-9]*$/),
+}
+
+/**
+ * UserOutcome entity.
+ * @author ranma.
+ */
+entity UserOutcome {
+	endOutcomeOpponentA String pattern(/^[0-9]*$/),
+    endOutcomeOpponentB String pattern(/^[0-9]*$/),
+}
+
+/**
+ * Score entity.
+ * @author ranma.
+ */
+entity Score {
+	points Integer
+}
+
+enum OpponentType {
+	SINGLE("Single"),
+    TEAM("Team")
+}
+
+enum GameType {
+	SOCCER("Soccer"),
+    BASKETBALL("Basketball"),
+    TENNIS("Tennis")
+}
+
+enum GameStageType {
+	ROUND_ROBIN("Round-Robin"),
+    FIRST_FOUR("First Four"),
+    ROUND_FOUR("Round 4"),
+    FIRST_ROUND("1st round"),
+    SECOND_ROUND("2nd round"),
+    THIRD_ROUND("3rd round"),
+    ROUND_FIVE("Round 5"),
+    ROUND_SIX("Round 6"),
+    ROUND_SEVEN("Round 7"),
+    FOURTH_ROUND("4th round"),
+    EIGHTH_FINALS("Eighth-finals"),
+    QUARTER_FINALS("Quarterfinals"),
+    SWEET_SIXTEEN("Sweet Sixteen"),
+    ELITE_EIGHT("Elite Eight"),
+    SEMI_FINALS("Semifinals"),
+    FINAL_FOUR("Final Four"),
+    FINAL("Final"),
+    NATIONAL_CHAMPIONSHIP("National Championship")
+}
+
+enum GameOutcome {
+	MISSED("Missed"),
+    HIT("Hit"),
+    SPECIAL("Special")
+}
+
+relationship ManyToMany {
+	Group{user(login)} to User{group}
+}
+
+relationship ManyToMany {
+	Game{user(login)} to User{game}
+}
+
+relationship ManyToOne {
+	Game{tournament(name) required} to Tournament{game}
+}
+
+relationship OneToOne {
+	Game{opponentA(name) required} to Opponent,
+    Game{opponentB(name) required} to Opponent
+}
+
+relationship OneToOne {
+	AdminOutcome{game(name) required} to Game
+    AdminOutcome{user(login) required} to User,
+    AdminOutcome{tournament(name) required} to Tournament
+}
+
+relationship OneToOne {
+	UserOutcome{game(name) required} to Game,
+    UserOutcome{user(login) required} to User,
+    UserOutcome{tournament(name) required} to Tournament
+}
+
+relationship OneToOne {
+	Score{game(name) required} to Game,
+    Score{user(login) required} to User,
+    Score{tournament(name) required} to Tournament
+}
+
+
+filter Group, Tournament, Opponent, Game, AdminOutcome, UserOutcome, Score
+paginate Game, AdminOutcome, UserOutcome with infinite-scroll
+paginate Group, Tournament, Opponent, Score with pagination
+
+
+

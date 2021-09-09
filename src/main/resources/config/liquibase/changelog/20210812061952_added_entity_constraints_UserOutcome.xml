@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity UserOutcome.
+    -->
+    <changeSet id="20210812061952-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="game_id"
+                                 baseTableName="user_outcome"
+                                 constraintName="fk_user_outcome__game_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="game"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="user_outcome"
+                                 constraintName="fk_user_outcome__user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="tournament_id"
+                                 baseTableName="user_outcome"
+                                 constraintName="fk_user_outcome__tournament_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tournament"/>
+    </changeSet>
+    <changeSet id="1628753109101-3" author="RANMA (generated)">
+        <setTableRemarks tableName="user_outcome"/>
+    </changeSet>
+    <changeSet id="1628753109101-4" author="RANMA (generated)">
+        <dropNotNullConstraint columnDataType="bigint" columnName="id" tableName="user_outcome"/>
+    </changeSet>
+<!--    <changeSet id="1628753109101-5" author="RANMA (generated)">-->
+<!--        <dropPrimaryKey tableName="user_outcome"/>-->
+<!--    </changeSet>-->
+    <changeSet id="1628753109101-6" author="RANMA (generated)">
+        <addPrimaryKey columnNames="user_id, tournament_id, game_id" constraintName="user_outcomePK" tableName="user_outcome"/>
+    </changeSet>
+</databaseChangeLog>

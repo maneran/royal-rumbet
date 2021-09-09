@@ -1,0 +1,598 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="RANMA (generated)" id="1628753109101-13">
+        <addUniqueConstraint columnNames="game_id" constraintName="UK_dhqfr6q6rwr4xbe6iu0n1cj88" tableName="score"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-14">
+        <addUniqueConstraint columnNames="user_id" constraintName="UK_h5v1032alxmvg7bf6hg85pvkk" tableName="score"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-15">
+        <addUniqueConstraint columnNames="tournament_id" constraintName="UK_ovspjqcjtoj18skireixpe8vl" tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-16">
+        <addUniqueConstraint columnNames="tournament_id" constraintName="UK_oxvv99ai8gdjkmvifdwdxqoc3" tableName="score"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-17">
+        <addUniqueConstraint columnNames="user_id" constraintName="UK_q08rp1h8cjc8rihlwmupo778w" tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-18">
+        <addUniqueConstraint columnNames="game_id" constraintName="UK_s9dtgk5n24amml5ht7loa98a2" tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-19">
+        <createIndex indexName="IX_user_outcomePK" tableName="user_outcome" unique="true">
+            <column name="user_id"/>
+            <column name="tournament_id"/>
+            <column name="game_id"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-20">
+        <dropForeignKeyConstraint baseTableName="client_session_auth_status" constraintName="auth_status_constraint"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-21">
+        <dropForeignKeyConstraint baseTableName="identity_provider" constraintName="fk2b4ebc52ae5c3b34"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-22">
+        <dropForeignKeyConstraint baseTableName="client_attributes" constraintName="fk3c47c64beacca966"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-23">
+        <dropForeignKeyConstraint baseTableName="federated_identity" constraintName="fk404288b92ef007a6"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-24">
+        <dropForeignKeyConstraint baseTableName="client_node_registrations" constraintName="fk4129723ba992f594"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-25">
+        <dropForeignKeyConstraint baseTableName="client_session_note" constraintName="fk5edfb00ff51c2736"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-26">
+        <dropForeignKeyConstraint baseTableName="user_session_note" constraintName="fk5edfb00ff51d3472"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-27">
+        <dropForeignKeyConstraint baseTableName="client_session_role" constraintName="fk_11b7sgqw18i532811v7o2dv76"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-28">
+        <dropForeignKeyConstraint baseTableName="redirect_uris" constraintName="fk_1burs8pb4ouj97h5wuppahv9f"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-29">
+        <dropForeignKeyConstraint baseTableName="user_federation_provider" constraintName="fk_1fj32f6ptolw2qy60cd8n01e8"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-30">
+        <dropForeignKeyConstraint baseTableName="client_session_prot_mapper" constraintName="fk_33a8sgqw18i532811v7o2dk89"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-31">
+        <dropForeignKeyConstraint baseTableName="realm_required_credential" constraintName="fk_5hg65lybevavkqfki3kponh9v"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-32">
+        <dropForeignKeyConstraint baseTableName="resource_attribute" constraintName="fk_5hrm2vlf9ql5fu022kqepovbr"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-33">
+        <dropForeignKeyConstraint baseTableName="user_attribute" constraintName="fk_5hrm2vlf9ql5fu043kqepovbr"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-34">
+        <dropForeignKeyConstraint baseTableName="user_required_action" constraintName="fk_6qj3w1jw9cvafhe19bwsiuvmd"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-35">
+        <dropForeignKeyConstraint baseTableName="keycloak_role" constraintName="fk_6vyqfe4cn4wlq8r6kt5vdsj5c"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-36">
+        <dropForeignKeyConstraint baseTableName="realm_smtp_config" constraintName="fk_70ej8xdxgxd0b9hh6180irr0o"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-37">
+        <dropForeignKeyConstraint baseTableName="realm_attribute" constraintName="fk_8shxd6l3e9atqukacxgpffptw"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-38">
+        <dropForeignKeyConstraint baseTableName="composite_role" constraintName="fk_a63wvekftu8jo1pnj81e7mce2"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-39">
+        <dropForeignKeyConstraint baseTableName="authentication_execution" constraintName="fk_auth_exec_flow"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-40">
+        <dropForeignKeyConstraint baseTableName="authentication_execution" constraintName="fk_auth_exec_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-41">
+        <dropForeignKeyConstraint baseTableName="authentication_flow" constraintName="fk_auth_flow_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-42">
+        <dropForeignKeyConstraint baseTableName="authenticator_config" constraintName="fk_auth_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-43">
+        <dropForeignKeyConstraint baseTableName="client_session" constraintName="fk_b4ao2vcvat6ukau74wbwtfqo1"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-44">
+        <dropForeignKeyConstraint baseTableName="user_role_mapping" constraintName="fk_c4fqv34p1mbylloxang7b1q3l"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-45">
+        <dropForeignKeyConstraint baseTableName="client_scope_attributes" constraintName="fk_cl_scope_attr_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-46">
+        <dropForeignKeyConstraint baseTableName="client_scope_role_mapping" constraintName="fk_cl_scope_rm_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-47">
+        <dropForeignKeyConstraint baseTableName="client_user_session_note" constraintName="fk_cl_usr_ses_note"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-48">
+        <dropForeignKeyConstraint baseTableName="protocol_mapper" constraintName="fk_cli_scope_mapper"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-49">
+        <dropForeignKeyConstraint baseTableName="client_initial_access" constraintName="fk_client_init_acc_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-50">
+        <dropForeignKeyConstraint baseTableName="component_config" constraintName="fk_component_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-51">
+        <dropForeignKeyConstraint baseTableName="component" constraintName="fk_component_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-52">
+        <dropForeignKeyConstraint baseTableName="realm_default_groups" constraintName="fk_def_groups_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-53">
+        <dropForeignKeyConstraint baseTableName="user_federation_mapper_config" constraintName="fk_fedmapper_cfg"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-54">
+        <dropForeignKeyConstraint baseTableName="user_federation_mapper" constraintName="fk_fedmapperpm_fedprv"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-55">
+        <dropForeignKeyConstraint baseTableName="user_federation_mapper" constraintName="fk_fedmapperpm_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-56">
+        <dropForeignKeyConstraint baseTableName="associated_policy" constraintName="fk_frsr5s213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-57">
+        <dropForeignKeyConstraint baseTableName="scope_policy" constraintName="fk_frsrasp13xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-58">
+        <dropForeignKeyConstraint baseTableName="resource_server_perm_ticket" constraintName="fk_frsrho213xcx4wnkog82sspmt"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-59">
+        <dropForeignKeyConstraint baseTableName="resource_server_resource" constraintName="fk_frsrho213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-60">
+        <dropForeignKeyConstraint baseTableName="resource_server_perm_ticket" constraintName="fk_frsrho213xcx4wnkog83sspmt"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-61">
+        <dropForeignKeyConstraint baseTableName="resource_server_perm_ticket" constraintName="fk_frsrho213xcx4wnkog84sspmt"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-62">
+        <dropForeignKeyConstraint baseTableName="associated_policy" constraintName="fk_frsrpas14xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-63">
+        <dropForeignKeyConstraint baseTableName="scope_policy" constraintName="fk_frsrpass3xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-64">
+        <dropForeignKeyConstraint baseTableName="resource_server_perm_ticket" constraintName="fk_frsrpo2128cx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-65">
+        <dropForeignKeyConstraint baseTableName="resource_server_policy" constraintName="fk_frsrpo213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-66">
+        <dropForeignKeyConstraint baseTableName="resource_scope" constraintName="fk_frsrpos13xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-67">
+        <dropForeignKeyConstraint baseTableName="resource_policy" constraintName="fk_frsrpos53xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-68">
+        <dropForeignKeyConstraint baseTableName="resource_policy" constraintName="fk_frsrpp213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-69">
+        <dropForeignKeyConstraint baseTableName="resource_scope" constraintName="fk_frsrps213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-70">
+        <dropForeignKeyConstraint baseTableName="resource_server_scope" constraintName="fk_frsrso213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-71">
+        <dropForeignKeyConstraint baseTableName="composite_role" constraintName="fk_gr7thllb9lu8q4vqa4524jjy8"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-72">
+        <dropForeignKeyConstraint baseTableName="user_consent_client_scope" constraintName="fk_grntcsnt_clsc_usc"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-73">
+        <dropForeignKeyConstraint baseTableName="user_consent" constraintName="fk_grntcsnt_user"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-74">
+        <dropForeignKeyConstraint baseTableName="group_attribute" constraintName="fk_group_attribute_group"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-75">
+        <dropForeignKeyConstraint baseTableName="group_role_mapping" constraintName="fk_group_role_group"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-76">
+        <dropForeignKeyConstraint baseTableName="realm_enabled_event_types" constraintName="fk_h846o4h0w8epx5nwedrf5y69j"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-77">
+        <dropForeignKeyConstraint baseTableName="realm_events_listeners" constraintName="fk_h846o4h0w8epx5nxev9f5y69j"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-78">
+        <dropForeignKeyConstraint baseTableName="identity_provider_mapper" constraintName="fk_idpm_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-79">
+        <dropForeignKeyConstraint baseTableName="idp_mapper_config" constraintName="fk_idpmconfig"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-80">
+        <dropForeignKeyConstraint baseTableName="web_origins" constraintName="fk_lojpho213xcx4wnkog82ssrfy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-81">
+        <dropForeignKeyConstraint baseTableName="scope_mapping" constraintName="fk_ouse064plmlr732lxjcn1q5f1"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-82">
+        <dropForeignKeyConstraint baseTableName="protocol_mapper" constraintName="fk_pcm_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-83">
+        <dropForeignKeyConstraint baseTableName="credential" constraintName="fk_pfyr0glasqyl0dei3kl69r6v0"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-84">
+        <dropForeignKeyConstraint baseTableName="protocol_mapper_config" constraintName="fk_pmconfig"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-85">
+        <dropForeignKeyConstraint baseTableName="default_client_scope" constraintName="fk_r_def_cli_scope_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-86">
+        <dropForeignKeyConstraint baseTableName="required_action_provider" constraintName="fk_req_act_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-87">
+        <dropForeignKeyConstraint baseTableName="resource_uris" constraintName="fk_resource_server_uris"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-88">
+        <dropForeignKeyConstraint baseTableName="role_attribute" constraintName="fk_role_attribute_id"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-89">
+        <dropForeignKeyConstraint baseTableName="realm_supported_locales" constraintName="fk_supported_locales_realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-90">
+        <dropForeignKeyConstraint baseTableName="user_federation_config" constraintName="fk_t13hpu1j94r2ebpekr39x5eu5"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-91">
+        <dropForeignKeyConstraint baseTableName="user_group_membership" constraintName="fk_user_group_user"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-92">
+        <dropForeignKeyConstraint baseTableName="policy_config" constraintName="fkdc34197cf864c4e43"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-93">
+        <dropForeignKeyConstraint baseTableName="identity_provider_config" constraintName="fkdc4897cf864c4e43"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-94">
+        <dropUniqueConstraint constraintName="UK_J3RWUVD56ONTGSUHOGM184WW2-2" tableName="keycloak_role"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-95">
+        <dropUniqueConstraint constraintName="con_group_id_def_groups" tableName="realm_default_groups"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-96">
+        <dropUniqueConstraint constraintName="sibling_names" tableName="keycloak_group"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-97">
+        <dropUniqueConstraint constraintName="uk_2daelwnibji49avxsrtuf6xj33" tableName="identity_provider"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-98">
+        <dropUniqueConstraint constraintName="uk_b71cjlbenv945rb6gcon438at" tableName="client"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-99">
+        <dropUniqueConstraint constraintName="uk_cli_scope" tableName="client_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-100">
+        <dropUniqueConstraint constraintName="uk_dykn684sl8up1crfei6eckhd7" tableName="user_entity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-101">
+        <dropUniqueConstraint constraintName="uk_frsr6t700s9v50bu18ws5ha6" tableName="resource_server_resource"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-102">
+        <dropUniqueConstraint constraintName="uk_frsr6t700s9v50bu18ws5pmt" tableName="resource_server_perm_ticket"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-103">
+        <dropUniqueConstraint constraintName="uk_frsrpt700s9v50bu18ws5ha6" tableName="resource_server_policy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-104">
+        <dropUniqueConstraint constraintName="uk_frsrst700s9v50bu18ws5ha6" tableName="resource_server_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-105">
+        <dropUniqueConstraint constraintName="uk_jkuwuvd56ontgsuhogm8uewrt" tableName="user_consent"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-106">
+        <dropUniqueConstraint constraintName="uk_orvsdmla56612eaefiq6wl5oi" tableName="realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-107">
+        <dropUniqueConstraint constraintName="uk_ru8tt6t700s9v50bu18ws5ha6" tableName="user_entity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-108">
+        <dropTable tableName="admin_event_entity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-109">
+        <dropTable tableName="associated_policy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-110">
+        <dropTable tableName="authentication_execution"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-111">
+        <dropTable tableName="authentication_flow"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-112">
+        <dropTable tableName="authenticator_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-113">
+        <dropTable tableName="authenticator_config_entry"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-114">
+        <dropTable tableName="broker_link"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-115">
+        <dropTable tableName="client"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-116">
+        <dropTable tableName="client_attributes"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-117">
+        <dropTable tableName="client_auth_flow_bindings"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-118">
+        <dropTable tableName="client_initial_access"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-119">
+        <dropTable tableName="client_node_registrations"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-120">
+        <dropTable tableName="client_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-121">
+        <dropTable tableName="client_scope_attributes"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-122">
+        <dropTable tableName="client_scope_client"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-123">
+        <dropTable tableName="client_scope_role_mapping"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-124">
+        <dropTable tableName="client_session"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-125">
+        <dropTable tableName="client_session_auth_status"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-126">
+        <dropTable tableName="client_session_note"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-127">
+        <dropTable tableName="client_session_prot_mapper"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-128">
+        <dropTable tableName="client_session_role"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-129">
+        <dropTable tableName="client_user_session_note"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-130">
+        <dropTable tableName="component"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-131">
+        <dropTable tableName="component_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-132">
+        <dropTable tableName="composite_role"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-133">
+        <dropTable tableName="credential"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-134">
+        <dropTable tableName="default_client_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-135">
+        <dropTable tableName="event_entity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-136">
+        <dropTable tableName="fed_user_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-137">
+        <dropTable tableName="fed_user_consent"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-138">
+        <dropTable tableName="fed_user_consent_cl_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-139">
+        <dropTable tableName="fed_user_credential"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-140">
+        <dropTable tableName="fed_user_group_membership"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-141">
+        <dropTable tableName="fed_user_required_action"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-142">
+        <dropTable tableName="fed_user_role_mapping"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-143">
+        <dropTable tableName="federated_identity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-144">
+        <dropTable tableName="federated_user"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-145">
+        <dropTable tableName="group_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-146">
+        <dropTable tableName="group_role_mapping"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-147">
+        <dropTable tableName="identity_provider"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-148">
+        <dropTable tableName="identity_provider_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-149">
+        <dropTable tableName="identity_provider_mapper"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-150">
+        <dropTable tableName="idp_mapper_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-151">
+        <dropTable tableName="keycloak_group"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-152">
+        <dropTable tableName="keycloak_role"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-153">
+        <dropTable tableName="migration_model"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-154">
+        <dropTable tableName="offline_client_session"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-155">
+        <dropTable tableName="offline_user_session"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-156">
+        <dropTable tableName="policy_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-157">
+        <dropTable tableName="protocol_mapper"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-158">
+        <dropTable tableName="protocol_mapper_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-159">
+        <dropTable tableName="realm"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-160">
+        <dropTable tableName="realm_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-161">
+        <dropTable tableName="realm_default_groups"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-162">
+        <dropTable tableName="realm_enabled_event_types"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-163">
+        <dropTable tableName="realm_events_listeners"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-164">
+        <dropTable tableName="realm_localizations"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-165">
+        <dropTable tableName="realm_required_credential"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-166">
+        <dropTable tableName="realm_smtp_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-167">
+        <dropTable tableName="realm_supported_locales"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-168">
+        <dropTable tableName="redirect_uris"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-169">
+        <dropTable tableName="required_action_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-170">
+        <dropTable tableName="required_action_provider"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-171">
+        <dropTable tableName="resource_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-172">
+        <dropTable tableName="resource_policy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-173">
+        <dropTable tableName="resource_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-174">
+        <dropTable tableName="resource_server"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-175">
+        <dropTable tableName="resource_server_perm_ticket"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-176">
+        <dropTable tableName="resource_server_policy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-177">
+        <dropTable tableName="resource_server_resource"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-178">
+        <dropTable tableName="resource_server_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-179">
+        <dropTable tableName="resource_uris"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-180">
+        <dropTable tableName="role_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-181">
+        <dropTable tableName="scope_mapping"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-182">
+        <dropTable tableName="scope_policy"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-183">
+        <dropTable tableName="user_attribute"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-184">
+        <dropTable tableName="user_consent"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-185">
+        <dropTable tableName="user_consent_client_scope"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-186">
+        <dropTable tableName="user_entity"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-187">
+        <dropTable tableName="user_federation_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-188">
+        <dropTable tableName="user_federation_mapper"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-189">
+        <dropTable tableName="user_federation_mapper_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-190">
+        <dropTable tableName="user_federation_provider"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-191">
+        <dropTable tableName="user_group_membership"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-192">
+        <dropTable tableName="user_required_action"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-193">
+        <dropTable tableName="user_role_mapping"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-194">
+        <dropTable tableName="user_session"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-195">
+        <dropTable tableName="user_session_note"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-196">
+        <dropTable tableName="username_login_failure"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-197">
+        <dropTable tableName="web_origins"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-1">
+        <alterSequence sequenceName="sequence_generator"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-2">
+        <setTableRemarks tableName="admin_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-3">
+        <setTableRemarks tableName="game"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-4">
+        <setTableRemarks tableName="game_config"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-5">
+        <setTableRemarks tableName="jhi_group"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-6">
+        <setTableRemarks tableName="opponent"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-7">
+        <setTableRemarks tableName="score"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-8">
+        <setTableRemarks tableName="tournament"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-9">
+        <setTableRemarks tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-10">
+        <dropNotNullConstraint columnDataType="bigint" columnName="id" tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-11">
+        <dropPrimaryKey tableName="user_outcome"/>
+    </changeSet>
+    <changeSet author="RANMA (generated)" id="1628753109101-12">
+        <addPrimaryKey columnNames="user_id, tournament_id, game_id" constraintName="user_outcomePK" tableName="user_outcome"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,73 @@
+{
+  "name": "Game",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateStart",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "gameType",
+      "fieldType": "GameType",
+      "fieldValues": "SOCCER (Soccer),BASKETBALL (Basketball),TENNIS (Tennis)",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "stageType",
+      "fieldType": "GameStageType",
+      "fieldValues": "ROUND_ROBIN (Round-Robin),FIRST_FOUR (First Four),ROUND_FOUR (Round 4),FIRST_ROUND (1st round),SECOND_ROUND (2nd round),THIRD_ROUND (3rd round),ROUND_FIVE (Round 5),ROUND_SIX (Round 6),ROUND_SEVEN (Round 7),FOURTH_ROUND (4th round),EIGHTH_FINALS (Eighth-finals),QUARTER_FINALS (Quarterfinals),SWEET_SIXTEEN (Sweet Sixteen),ELITE_EIGHT (Elite Eight),SEMI_FINALS (Semifinals),FINAL_FOUR (Final Four),FINAL (Final),NATIONAL_CHAMPIONSHIP (National Championship)",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "opponent",
+      "otherEntityRelationshipName": "game",
+      "relationshipValidateRules": "required",
+      "relationshipName": "opponentA",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "opponent",
+      "otherEntityRelationshipName": "game",
+      "relationshipValidateRules": "required",
+      "relationshipName": "opponentB",
+      "otherEntityField": "name",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tournament",
+      "otherEntityRelationshipName": "game",
+      "relationshipValidateRules": "required",
+      "relationshipName": "tournament",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "game",
+      "relationshipName": "user",
+      "otherEntityField": "login",
+      "ownerSide": true
+    }
+  ],
+  "javadoc": "Game entity.\\n@author ranma.\\nname will be regenerate including\\ntournament-name + opponent names + dateStart\\nfor searching purpose in Outcome endpoint",
+  "entityTableName": "game",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210812061949"
+}
