@@ -7,6 +7,8 @@ import { getLoginUrl } from 'app/shared/util/url-utils';
 import { NavDropdown } from './menu-components';
 // sagis - required for user login name below
 import { useAppSelector } from 'app/config/store';
+import { NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import { NavLink as Link } from 'react-router-dom';
 
 const accountMenuItemsAuthenticated = (
   <>
@@ -18,9 +20,12 @@ const accountMenuItemsAuthenticated = (
 
 const accountMenuItems = (
   <>
-    <DropdownItem id="login-item" tag="a" href={getLoginUrl()} data-cy="login">
-      <FontAwesomeIcon icon="sign-in-alt" /> Sign in
-    </DropdownItem>
+    <NavItem>
+      <NavLink tag={Link} to={"/" + getLoginUrl()} className="d-flex align-items-center active" data-cy="login">
+        <FontAwesomeIcon icon="sign-in-alt"/>
+        <span>Sign in</span>
+      </NavLink>
+    </NavItem>
   </>
 );
 // sagis - change to component + replaced button name with user name. if not connected - just use sign in

@@ -22,9 +22,11 @@ export const Brand = props => (
 
 export const Home = props => (
   <NavItem>
-    <NavLink tag={Link} to="/" className="d-flex align-items-center">
+    {/* added thr home to the nav / - to avoind .active class*/}
+    <NavLink tag={Link} to="/home" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" />
       <span>Home</span>
     </NavLink>
   </NavItem>
 );
+
